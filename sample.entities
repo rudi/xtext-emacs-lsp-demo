@@ -1,0 +1,9 @@
+
+entity Hello25 {
+       int myAttribute;
+}
+
+entity MySubEntity extends Hello25 {
+       string[20] myAttribute;
+}
+
