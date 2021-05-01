@@ -1,0 +1,35 @@
+grammar at.constantly.Entities with org.eclipse.xtext.common.Terminals
+
+generate entities "http://www.constantly.at/Entities"
+
+Model:
+	entities += Entity*
+	;
+
+Entity:
+	'entity' name=ID ('extends' superType=[Entity])?
+	'{'
+	attributes+=Attribute*
+	'}'
+;
+
+Attribute:
+	type=Attributetype name=ID ';'
+;
+
+Attributetype:
+	elementType=ElementType  (array?= '[' (length=INT)? ']' )?
+;
+
+ElementType:
+	BasicType | EntityType
+;
+
+
+BasicType:
+	typeName=('string'|'int'|'boolean')
+;
+
+EntityType:
+	entity=[Entity]
+;
