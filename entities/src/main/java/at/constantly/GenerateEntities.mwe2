@@ -40,7 +40,7 @@ Workflow {
 				generateDeprecationValidation = true
 			}
 			generator = {
-				generateXtendStub = true
+				generateXtendStub = false
 			}
 			junitSupport = {
 				junitVersion = "5"
