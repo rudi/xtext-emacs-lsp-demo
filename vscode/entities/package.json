@@ -1,0 +1,25 @@
+{
+    "name": "entities",
+    "displayName": "Entities",
+    "description": "Support for the Entities demo language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.56.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "entities",
+            "aliases": ["Entities", "entities"],
+            "extensions": [".entities"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "entities",
+            "scopeName": "source.entities",
+            "path": "./syntaxes/entities.tmLanguage.json"
+        }]
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Entities",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#storage"
+        },
+        {
+            "include": "#types"
+        }
+    ],
+    "repository": {
+        "comments":{
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.entities",
+                    "begin": "//",
+                    "end": "\\n"
+                },
+                {
+                    "name": "comment.block.entities",
+                    "begin": "/\\*",
+                    "begincaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.begin.entities"
+                        }
+                    },
+                    "end": "\\*/",
+                    "endcaptures": {
+                        "0":{
+                            "name": "punctuation.definition.comment.end.entities"
+                        }
+                    }
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.entities",
+                    "match": "\\b(entity|extends)\\b"
+                }
+            ]
+        },
+        "storage": {
+            "patterns": [
+                {
+                    "name": "storage.type.entities",
+                    "match": "\\b(string|int|boolean)\\b"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.entities",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.entities",
+                    "match": "\\\\."
+                }
+            ]
+        }
+    },
+    "scopeName": "source.entities"
+}
