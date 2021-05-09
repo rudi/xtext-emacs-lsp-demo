@@ -65,7 +65,19 @@ The hook `prog-mode-hook' is run during initialization, then
 
 The following keys are set:
 \\{entities-mode-map}"
-  (setq font-lock-defaults '(entities-font-lock-keywords)))
+  (setq font-lock-defaults '(entities-font-lock-keywords))
+  (set (make-local-variable 'comment-use-syntax) t)
+  (set (make-local-variable 'comment-start) "//")
+  (set (make-local-variable 'comment-end) "")
+  (set (make-local-variable 'comment-start-skip) "//+\\s-*"))
+
+;; `entities-mode-syntax-table' is created by the `define-derived-mode' form
+;; above, so here we can modify it to teach it about comments.
+(modify-syntax-entry ?/   ". 124" entities-mode-syntax-table)
+(modify-syntax-entry ?*   ". 23b" entities-mode-syntax-table)
+(modify-syntax-entry ?\n  ">" entities-mode-syntax-table)
+(modify-syntax-entry ?\^m ">" entities-mode-syntax-table)
+
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.entities\\'" . entities-mode))
