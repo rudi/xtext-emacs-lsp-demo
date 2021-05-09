@@ -7,13 +7,15 @@ The “entities” language used for this example is described in the book
 Edition](https://www.packtpub.com/product/implementing-domain-specific-languages-with-xtext-and-xtend-second-edition/9781786464965)
 by [Lorenzo Bettini](http://www.lorenzobettini.it).
 
-To run the example, do the following:
-
-1. Build the language server
+To run the examples, first build the language server with the command 
 
    `./gradlew assemble`
    
-2. Load `entities-mode.el` into Emacs
+## Emacs
+
+1. Install `lsp-mode` as described on the project page at https://github.com/emacs-lsp/lsp-mode
+
+2. Load `emacs/entities-mode.el` into Emacs
 
 3. Check the path in `entities-ls-jar`; adapt if necessary
 

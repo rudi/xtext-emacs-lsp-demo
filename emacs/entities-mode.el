@@ -44,7 +44,7 @@
 
 (defvar entities-ls-jar
   ;; Should be something like "/home/user/source/entities.parent/entities.ide/build/libs/entities.ide-1.0.0-SNAPSHOT-ls.jar"
-  (expand-file-name "entities.ide/build/libs/entities.ide-1.0.0-SNAPSHOT-ls.jar"
+  (expand-file-name "../entities.ide/build/libs/entities.ide-1.0.0-SNAPSHOT-ls.jar"
                     (when load-file-name (file-name-directory load-file-name))))
 
 (add-to-list 'lsp-language-id-configuration
