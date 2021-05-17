@@ -61,10 +61,10 @@ The hook `prog-mode-hook' is run during initialization, then
 The following keys are set:
 \\{entities-mode-map}"
   (setq font-lock-defaults '(entities-font-lock-keywords))
-  (set (make-local-variable 'comment-use-syntax) t)
-  (set (make-local-variable 'comment-start) "//")
-  (set (make-local-variable 'comment-end) "")
-  (set (make-local-variable 'comment-start-skip) "//+\\s-*")
+  (setq-local comment-use-syntax t)
+  (setq-local comment-start "//")
+  (setq-local comment-end "")
+  (setq-local comment-start-skip "//+\\s-*")
   (when (featurep 'lsp-mode)
     ;; https://emacs-lsp.github.io/lsp-mode/page/adding-new-language/
     (add-to-list 'lsp-language-id-configuration
