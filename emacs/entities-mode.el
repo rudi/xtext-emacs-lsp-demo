@@ -64,18 +64,7 @@ The following keys are set:
   (setq-local comment-use-syntax t)
   (setq-local comment-start "//")
   (setq-local comment-end "")
-  (setq-local comment-start-skip "//+\\s-*")
-  (when (featurep 'lsp-mode)
-    ;; https://emacs-lsp.github.io/lsp-mode/page/adding-new-language/
-    (add-to-list 'lsp-language-id-configuration
-                 '(entities-mode . "entities"))
-    (lsp-register-client
-     (make-lsp-client :major-modes '(entities-mode)
-                      :server-id 'entities-ls
-                      :new-connection (lsp-stdio-connection (list "java" "-jar" entities-ls-jar)))))
-  (when (featurep 'eglot)
-    ;; https://github.com/joaotavora/eglot#connecting-to-a-server
-    (add-to-list 'eglot-server-programs `(entities-mode . ("java" "-jar" ,entities-ls-jar)))))
+  (setq-local comment-start-skip "//+\\s-*"))
 
 ;; `entities-mode-syntax-table' is created by the `define-derived-mode' form
 ;; above, so here we can modify it to teach it about comments.
@@ -87,5 +76,20 @@ The following keys are set:
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.entities\\'" . entities-mode))
+
+;;;###autoload
+(when (featurep 'lsp-mode)
+  ;; https://emacs-lsp.github.io/lsp-mode/page/adding-new-language/
+  (add-to-list 'lsp-language-id-configuration
+               '(entities-mode . "entities"))
+  (lsp-register-client
+   (make-lsp-client :major-modes '(entities-mode)
+                    :server-id 'entities-ls
+                    :new-connection (lsp-stdio-connection (list "java" "-jar" entities-ls-jar)))))
+
+;;;###autoload
+(when (featurep 'eglot)
+  ;; https://github.com/joaotavora/eglot#connecting-to-a-server
+  (add-to-list 'eglot-server-programs `(entities-mode . ("java" "-jar" ,entities-ls-jar))))
 
 (provide 'entities-mode)
