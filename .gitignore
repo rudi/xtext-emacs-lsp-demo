@@ -1,6 +1,6 @@
 .DS_Store
-/.gradle/
-build/
-xtext-gen/
-xtend-gen/
-/entities/model/generated/
+/xtext-lsp-server/.gradle/
+/xtext-lsp-server/*/build/
+/xtext-lsp-server/**/xtext-gen/
+/xtext-lsp-server/**/xtend-gen/
+/xtext-lsp-server/entities/model/generated/

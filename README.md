@@ -9,7 +9,7 @@ by [Lorenzo Bettini](http://www.lorenzobettini.it).
 
 To run the examples, first build the language server with the command 
 
-   `./gradlew assemble`
+   `cd xtext-lsp-server ; ./gradlew assemble`
    
 ## Emacs
 
@@ -21,6 +21,6 @@ To run the examples, first build the language server with the command
 
 4. Open `sample.entities` in Emacs
 
-5. Start the language server with `M-x lsp`
+5. Start the language server with `M-x eglot` (or `M-x lsp` if you use lsp-mode)
 
 6. Position the cursor on `Hello25`; check that cross-highlighting and `M-.` (aka `M-x xref-find-definitions`) work
