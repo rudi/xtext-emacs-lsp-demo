@@ -1,0 +1,79 @@
+================
+Empty Entity
+================
+entity foo { }
+---
+(model (entity (ID)))
+
+================
+Empty Entity with Comments
+================
+/* This is a comment */
+entity foo {
+  // This is another comment
+}
+---
+(model (comment) (entity (ID) (comment)))
+
+================
+Empty Entities
+================
+entity foo { }
+entity bar { }
+entity baz { }
+---
+(model (entity (ID)) (entity (ID)) (entity (ID)))
+
+================
+Entity Extension
+================
+entity foo { }
+entity bar extends foo { }
+---
+(model (entity (ID)) (entity (ID) (ID)))
+
+================
+Basic Attributes
+================
+entity foo {
+  string a;
+  int b;
+  boolean c;
+}
+---
+(model (entity (ID)
+  (attribute (attributetype (elementtype (basictype))) (ID))
+  (attribute (attributetype (elementtype (basictype))) (ID))
+  (attribute (attributetype (elementtype (basictype))) (ID))))
+
+================
+Entity Attributes
+================
+entity foo {
+  foo a;
+  bar b;
+}
+entity bar { }
+---
+(model (entity (ID)
+  (attribute (attributetype (elementtype (entitytype (ID)))) (ID))
+  (attribute (attributetype (elementtype (entitytype (ID)))) (ID)))
+  (entity (ID)))
+
+================
+Attribute Arrays
+================
+entity foo {
+  string[] a;
+  int[2] b;
+  bar[] c;
+  bar[2] d;
+}
+entity bar { }
+---
+(model (entity (ID)
+  (attribute (attributetype (elementtype (basictype))) (ID))
+  (attribute (attributetype (elementtype (basictype)) (INT)) (ID))
+  (attribute (attributetype (elementtype (entitytype (ID)))) (ID))
+  (attribute (attributetype (elementtype (entitytype (ID))) (INT)) (ID)))
+  (entity (ID)))

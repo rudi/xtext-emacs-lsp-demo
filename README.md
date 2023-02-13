@@ -7,20 +7,26 @@ The “entities” language used for this example is described in the book
 Edition](https://www.packtpub.com/product/implementing-domain-specific-languages-with-xtext-and-xtend-second-edition/9781786464965)
 by [Lorenzo Bettini](http://www.lorenzobettini.it).
 
-To run the examples, first build the language server with the command 
+## The Language Server
 
-   `cd xtext-lsp-server ; ./gradlew assemble`
-   
+Build the language server with the following command:
+
+    cd xtext-lsp-server ; ./gradlew assemble
+
+## The Tree-Sitter Grammar
+
+Build the tree-sitter grammar with the following command:
+
+    cd tree-sitter-entities ; npm install
+
 ## Emacs
 
-1. Install `lsp-mode` as described on the project page at https://github.com/emacs-lsp/lsp-mode
+1. Load `emacs/entities-mode.el` into Emacs
 
-2. Load `emacs/entities-mode.el` into Emacs
+2. Check the path in `entities-ls-jar`; adapt if necessary
 
-3. Check the path in `entities-ls-jar`; adapt if necessary
+3. Open `sample.entities` in Emacs
 
-4. Open `sample.entities` in Emacs
+4. Start the language server with `M-x eglot` (or `M-x lsp` if you use lsp-mode)
 
-5. Start the language server with `M-x eglot` (or `M-x lsp` if you use lsp-mode)
-
-6. Position the cursor on `Hello25`; check that cross-highlighting and `M-.` (aka `M-x xref-find-definitions`) work
+5. Position the cursor on `Hello25`; check that cross-highlighting and `M-.` (aka `M-x xref-find-definitions`) work

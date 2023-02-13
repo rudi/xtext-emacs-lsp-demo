@@ -1,0 +1,210 @@
+[
+  {
+    "type": "attribute",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ID",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "attributetype",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "attributetype",
+    "named": true,
+    "fields": {
+      "array": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          }
+        ]
+      },
+      "length": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "INT",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "elementtype",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "basictype",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "elementtype",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "basictype",
+          "named": true
+        },
+        {
+          "type": "entitytype",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "entity",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ID",
+            "named": true
+          }
+        ]
+      },
+      "supertype": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ID",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "entitytype",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ID",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "model",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "entity",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "ID",
+    "named": true
+  },
+  {
+    "type": "INT",
+    "named": true
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "boolean",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "entity",
+    "named": false
+  },
+  {
+    "type": "extends",
+    "named": false
+  },
+  {
+    "type": "int",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]
